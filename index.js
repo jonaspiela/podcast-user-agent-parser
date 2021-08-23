@@ -1,6 +1,6 @@
 const https = require('https');
 
-exports.UserAgentParser = class UserAgentParser {
+module.exports = class UserAgentParser {
     constructor(){
         this.getUserAgentDatabase = this.getUserAgentDatabase.bind(this);
         this.parseU = this.parse.bind(this);
@@ -37,9 +37,15 @@ exports.UserAgentParser = class UserAgentParser {
 
     parse = (userAgent) => {
         for(let i = 0; i < this.userAgentDatabase.length; i++) {
-            if(userAgent.match(this.userAgentDatabase[i].user_agents)){
+          var userAgents = this.userAgentDatabase[i].user_agents;
+          
+          for(let j = 0; j < userAgents.length; j++){
+            var regExp = new RegExp(userAgents[j], 'g');
+
+            if(userAgent.match(regExp)){
                 return this.userAgentDatabase[i];
             }
+          }
         }
     }
 }

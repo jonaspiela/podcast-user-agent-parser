@@ -1,10 +1,10 @@
 {
   "name": "podcast-user-agent-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parses user agents against the user agent list of opawg/user-agents to find app, device and os for podcast audio requests.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --inspect-brk"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/jonaspiela/podcast-user-agent-parser/issues"
   },
-  "homepage": "https://github.com/jonaspiela/podcast-user-agent-parser#readme"
+  "homepage": "https://github.com/jonaspiela/podcast-user-agent-parser#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
